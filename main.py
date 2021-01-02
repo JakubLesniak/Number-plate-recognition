@@ -45,7 +45,7 @@ def trainModel():
 def getChar(knn, img):
 	i = cv2.resize(img, (100,200)).reshape(-1,20000).astype(np.float32)
 	_,result,_,_ = knn.findNearest(i,k=5)
-	return chr(result)
+	return chr(np.array(int(result)))
 
 def detectChars(path, knn):
 	image = cv2.imread(path)
